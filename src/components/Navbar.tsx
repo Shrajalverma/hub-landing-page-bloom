@@ -34,9 +34,6 @@ const Navbar = () => {
           <Button variant="ghost" className="text-smh-dark font-medium" asChild>
             <Link to="/login">Log In</Link>
           </Button>
-          <Button className="btn-primary" asChild>
-            <Link to="/signup">Sign Up Free</Link>
-          </Button>
         </div>
 
         {/* Mobile menu button */}
