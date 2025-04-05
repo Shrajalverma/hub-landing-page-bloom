@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,11 +15,11 @@ const Navbar = () => {
     <nav className="bg-white/80 backdrop-blur-md py-4 px-6 md:px-10 fixed w-full top-0 z-50 shadow-sm">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <a href="/" className="text-2xl font-nunito font-extrabold text-smh-dark">
+          <Link to="/" className="text-2xl font-nunito font-extrabold text-smh-dark">
             <span className="text-smh-purple">Smart</span>
             <span className="text-smh-blue">Money</span>
             <span className="text-smh-mint">Hub</span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -30,8 +31,12 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="ghost" className="text-smh-dark font-medium">Log In</Button>
-          <Button className="btn-primary">Sign Up Free</Button>
+          <Button variant="ghost" className="text-smh-dark font-medium" asChild>
+            <Link to="/login">Log In</Link>
+          </Button>
+          <Button className="btn-primary" asChild>
+            <Link to="/signup">Sign Up Free</Link>
+          </Button>
         </div>
 
         {/* Mobile menu button */}
@@ -50,8 +55,12 @@ const Navbar = () => {
           <a href="#testimonials" className="text-smh-dark hover:text-smh-purple py-2 transition-colors font-medium" onClick={toggleMenu}>Testimonials</a>
           <a href="#pricing" className="text-smh-dark hover:text-smh-purple py-2 transition-colors font-medium" onClick={toggleMenu}>Pricing</a>
           <div className="flex flex-col space-y-2 pt-2">
-            <Button variant="ghost" className="text-smh-dark w-full font-medium">Log In</Button>
-            <Button className="btn-primary w-full">Sign Up Free</Button>
+            <Button variant="ghost" className="text-smh-dark w-full font-medium" asChild>
+              <Link to="/login">Log In</Link>
+            </Button>
+            <Button className="btn-primary w-full" asChild>
+              <Link to="/signup">Sign Up Free</Link>
+            </Button>
           </div>
         </div>
       )}
